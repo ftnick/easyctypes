@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='easyctypes',
-    version='0.1.3',
+    version='0.1.4',
     packages=find_packages(),
     extras_require={
         'dev': [
@@ -20,8 +20,8 @@ setup(
     author_email='',
     license='MIT',
     classifiers=[
-        'Programming Language :: Python :: 3.12',
+        'Programming Language :: Python :: 3.9',
         'Operating System :: OS Independent',
     ],
-    python_requires='>=3.12',
+    python_requires='>=3.9',
 )
