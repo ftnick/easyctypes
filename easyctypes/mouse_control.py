@@ -34,8 +34,18 @@ def move_mouse(x, y):
     
     :param x: The x-coordinate to move the mouse to.
     :param y: The y-coordinate to move the mouse to.
+    
+    Raises:
+        ValueError: If x or y are out of screen bounds.
     """
     if platform.system() == 'Windows':
+        screen_width = user32.GetSystemMetrics(0)  # Get screen width
+        screen_height = user32.GetSystemMetrics(1)  # Get screen height
+
+        # Validate the coordinates
+        if not (0 <= x < screen_width) or not (0 <= y < screen_height):
+            raise ValueError(f"Invalid mouse position: ({x}, {y}). Must be within (0, 0) to ({screen_width}, {screen_height}).")
+        
         user32.SetCursorPos(x, y)
     else:
         raise NotImplementedError("Mouse control is not implemented for this platform.")
@@ -46,6 +56,9 @@ def click_mouse(button="left"):
     Simulates a mouse click.
     
     :param button: 'left' for left click, 'right' for right click.
+    
+    Raises:
+        ValueError: If an invalid button is specified.
     """
     if platform.system() == 'Windows':
         if button == "left":
