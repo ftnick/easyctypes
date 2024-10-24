@@ -4,9 +4,6 @@ setup(
     name='easyctypes',
     version='0.1.2',
     packages=find_packages(),
-    install_requires=[
-        'ctypes',
-    ],
     extras_require={
         'dev': [
             'pytest',
